@@ -80,3 +80,28 @@ body {
 #hamburger-menu {
     display: none;
 }
+
+/* Media Queries */
+
+
+/* Laptop */
+@media (max-width: 1366px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    html {
+        font-size: 63.5%;
+    }
+}
+
+
+/* Mobile Phone */
+@media (max-width: 480px) {
+    html {
+        font-size: 55%;
+    }
+}
