@@ -1,7 +1,8 @@
 // Toggle class active for hamburger menu
 const navbarNav = document.querySelector(".navbar-nav");
+const hamburger = document.querySelector("#hamburger-menu");
 
-document.querySelector("#hamburger-menu").onclick = () => {
+hamburger.onclick = () => {
   navbarNav.classList.toggle("active");
 };
 
@@ -16,7 +17,15 @@ searchButton.onclick = (e) => {
   e.preventDefault();
 };
 
-const hamburger = document.querySelector("#hamburger-menu");
+// Toggle class active for shopping cart
+const shoppingCartButton = document.querySelector("#shopping-cart-button");
+const shoppingCart = document.querySelector(".shopping-cart");
+
+shoppingCartButton.onclick = () => {
+  shoppingCart.classList.toggle("active");
+};
+
+
 
 document.addEventListener("click", function (e) {
   if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
@@ -25,5 +34,9 @@ document.addEventListener("click", function (e) {
 
   if (!searchButton.contains(e.target) && !searchForm.contains(e.target)) {
     searchForm.classList.remove("active");
+  }
+
+  if (!shoppingCartButton.contains(e.target) && !shoppingCart.contains(e.target)) {
+    shoppingCart.classList.remove("active");
   }
 });
