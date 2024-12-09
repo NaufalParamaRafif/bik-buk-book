@@ -25,8 +25,6 @@ shoppingCartButton.onclick = () => {
   shoppingCart.classList.toggle("active");
 };
 
-
-
 document.addEventListener("click", function (e) {
   if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
     navbarNav.classList.remove("active");
@@ -36,7 +34,35 @@ document.addEventListener("click", function (e) {
     searchForm.classList.remove("active");
   }
 
-  if (!shoppingCartButton.contains(e.target) && !shoppingCart.contains(e.target)) {
+  if (
+    !shoppingCartButton.contains(e.target) &&
+    !shoppingCart.contains(e.target)
+  ) {
     shoppingCart.classList.remove("active");
   }
 });
+
+// Modal Box
+const itemDetailModal = document.querySelector('#item-detail-modal');
+const itemDetailButtons = document.querySelectorAll('.item-detail-button');
+
+itemDetailButtons.forEach(
+  (itemDetailButton) =>
+    (itemDetailButton.onclick = (e) => {
+      itemDetailModal.style.display = 'flex';
+      e.preventDefault();
+    })
+);
+
+// Close modal button clicked
+document.querySelector('.modal .close-icon').onclick = (e) => {
+  itemDetailModal.style.display = 'none';
+  e.preventDefault();
+};
+
+// Click outside modal
+window.onclick = (e) => {
+  if (e.target === itemDetailModal) {
+    itemDetailModal.style.display = 'none';
+  }
+};
