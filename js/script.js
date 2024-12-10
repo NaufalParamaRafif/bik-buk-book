@@ -2,8 +2,9 @@
 const navbarNav = document.querySelector(".navbar-nav");
 const hamburger = document.querySelector("#hamburger-menu");
 
-hamburger.onclick = () => {
+hamburger.onclick = (e) => {
   navbarNav.classList.toggle("active");
+  e.preventDefault();
 };
 
 // Toggle class active for search form
@@ -21,8 +22,9 @@ searchButton.onclick = (e) => {
 const shoppingCartButton = document.querySelector("#shopping-cart-button");
 const shoppingCart = document.querySelector(".shopping-cart");
 
-shoppingCartButton.onclick = () => {
+shoppingCartButton.onclick = (e) => {
   shoppingCart.classList.toggle("active");
+  e.preventDefault();
 };
 
 document.addEventListener("click", function (e) {
@@ -43,26 +45,26 @@ document.addEventListener("click", function (e) {
 });
 
 // Modal Box
-const itemDetailModal = document.querySelector('#item-detail-modal');
-const itemDetailButtons = document.querySelectorAll('.item-detail-button');
+const itemDetailModal = document.querySelector("#item-detail-modal");
+const itemDetailButtons = document.querySelectorAll(".item-detail-button");
 
 itemDetailButtons.forEach(
   (itemDetailButton) =>
     (itemDetailButton.onclick = (e) => {
-      itemDetailModal.style.display = 'flex';
+      itemDetailModal.style.display = "flex";
       e.preventDefault();
     })
 );
 
 // Close modal button clicked
-document.querySelector('.modal .close-icon').onclick = (e) => {
-  itemDetailModal.style.display = 'none';
+document.querySelector(".modal .close-icon").onclick = (e) => {
+  itemDetailModal.style.display = "none";
   e.preventDefault();
 };
 
 // Click outside modal
 window.onclick = (e) => {
   if (e.target === itemDetailModal) {
-    itemDetailModal.style.display = 'none';
+    itemDetailModal.style.display = "none";
   }
 };
